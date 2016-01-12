@@ -1,0 +1,119 @@
+<link rel="import" href="../polymer/polymer.html">
+<script src="../codemirror/lib/codemirror.js"></script>
+<script src="../codemirror/mode/go/go.js"></script>
+
+<dom-module id="code-mirror">
+    <style>
+    :host {
+        display: block;
+        position: relative;
+    }
+    #content {
+        display: none;
+    }
+    </style>
+
+    <template>
+        <link href="../codemirror/lib/codemirror.css" rel="stylesheet" >
+        <link href="../codemirror/theme/material.css" rel="stylesheet">
+        <div id="wrapper"></div>
+        <div id="content">
+            <content></content>
+        </div>
+    </template>
+
+    <script>
+
+        Polymer({
+            is: 'code-mirror',
+
+            properties: {
+                value: {
+                    type: String,
+                    value: null,
+                    notify: true,
+                    observer: '_valueChanged'
+                },
+                tabSize: {
+                    type: Number,
+                    value: 2
+                },
+                mode: {
+                    type: String,
+                    value: 'htmlmixed'
+                },
+                theme: {
+                    type: String,
+                    value: 'material'
+                },
+                lineNumbers: {
+                    type: Boolean,
+                    value: true
+                },
+                width: {
+                    type: String,
+                    value: '100%'
+                },
+                height: {
+                    type: String,
+                    value: '100%'
+                },
+                readonly: {
+                    type: Boolean,
+                    value: false
+                },
+                hidecursor: {
+                    type: Boolean,
+                    value: false
+                }
+            },
+
+            ready: function() {
+                if (!this.value) {
+                    this.value = this.textContent.trim();
+                }
+
+                var cursorHeight = 1;
+                if (this.hidecursor) {
+                    cursorHeight = 0;
+                }
+
+                this.mirror = CodeMirror(this.$.wrapper, {
+                    value: this.value,
+                    mode: this.mode,
+                    theme: this.theme,
+                    lineNumbers: this.lineNumbers,
+                    tabSize: this.tabSize,
+                    readOnly: this.readonly,
+                    cursorHeight: cursorHeight
+                });
+                this.mirror.setSize(this.width, this.height);
+
+                this.mirror.on('update', function(editor) {
+                    this.fire('update', {editor: editor});
+                }.bind(this));
+            },
+
+            focus: function() {
+                this.mirror.focus();
+            },
+
+            refresh: function() {
+                this.mirror.refresh();
+            },
+
+            getMirror: function() {
+                return this.mirror;
+            },
+
+            _valueChanged: function(newValue) {
+                if (!newValue) {
+                    return;
+                }
+                this.mirror.setValue(newValue);
+            }
+
+        });
+
+    </script>
+</dom-module>

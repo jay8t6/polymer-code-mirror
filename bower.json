@@ -1,0 +1,36 @@
+{
+  "name": "polymer-code-mirror",
+  "version": "0.3.0",
+  "authors": [
+    "PET Computação UFPR <pet@inf.ufpr.br> (http://pet.inf.ufpr.br)",
+    "Vytor Calixto <vytorcalixto@gmail.com> (http://github.com/VytorCalixto)",
+    "Jonathan Gautheron <jgautheron@neverblend.in> (http://github.com/jgautheron)"
+  ],
+  "description": "CodeMirror web component made with Polymer",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "code-mirror",
+    "code",
+    "mirror",
+    "pet",
+    "ufpr"
+  ],
+  "main": "code-mirror.html",
+  "license": "MIT",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/",
+    "/index.html"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0",
+    "codemirror": "~5.10.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  }
+}
