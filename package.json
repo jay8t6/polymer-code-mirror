@@ -1,7 +1,7 @@
 {
   "name": "polymer-code-mirror",
-  "version": "0.2.0",
-  "description": "CodeMirror web component made with Polymer",
+  "version": "0.3.2",
+  "description": "CodeMirror web component made with Polymer for Go",
   "main": "code-mirror.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +17,8 @@
   ],
   "author": "PET Computação UFPR <pet@inf.ufpr.br> (http://pet.inf.ufpr.br)",
   "contributors":[
-      "Vytor Calixto <vytorcalixto@gmail.com> (https://gihtub.com/VytorCalixto)"
+      "Vytor Calixto <vytorcalixto@gmail.com> (https://gihtub.com/VytorCalixto)",
+      "Jonathan Gautheron <jgautheron@neverblend.in> (http://github.com/jgautheron)"
   ],
   "license": "MIT"
 }
