@@ -1,9 +1,6 @@
-# Code-Mirror
+# CodeMirror for Go
 
-:warning: This repo is a fork of the initial project that can only be found on npm.  
-This fork drops the needs for hacks.
-
-Polymer element wrapping [CodeMirror](http://codemirror.net)
+Polymer element wrapping [CodeMirror](http://codemirror.net), includes only the Go parser with the Material theme.
 
 ## What is this?
 Code-Mirror is a Web Component made with [Polymer](https://www.polymer-project.org/) that wraps a default text-area with CodeMirror's highlight syntax, plugins and options.
